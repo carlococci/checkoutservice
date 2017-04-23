@@ -46,21 +46,16 @@ namespace checkoutprice
             int in_quant=0;
             int current_quantity = 0;
             string in_name = "";
-            double total_price_val = 0;
+            //double total_price_val = 0;
             var url = "https://api.myjson.com/bins/gx6vz";
 
-            using (WebClient wc = new WebClient())
-            {
-                var json = wc.DownloadString(url);
-                var prices = JsonConvert.DeserializeObject<List<price>>(json);
-            }
 
             foreach (string s in itemqty_list)
             {
-                int.TryParse(s.Substring(s.IndexOf(":") + 1),out in_quant);
+                int.TryParse(s.Substring(s.IndexOf(":") + 1), out in_quant);
                 in_name = s.Substring(0, s.IndexOf(":"));
 
-                if ( in_quant == 0)
+                if (in_quant == 0)
                 {
                     Console.WriteLine("Invalid quantity");
                 }
@@ -68,7 +63,7 @@ namespace checkoutprice
                 if (item_dictlist.ContainsKey(in_name))
                 {
                     item_dictlist.TryGetValue(in_name, out current_quantity);
-                    item_dictlist.Remove(in_name);                    
+                    item_dictlist.Remove(in_name);
                 }
                 else
                 {
@@ -77,6 +72,11 @@ namespace checkoutprice
                 item_dictlist.Add(in_name, current_quantity + in_quant);
             }
 
+            using (WebClient wc = new WebClient())
+            {
+                var json = wc.DownloadString(url);
+                var prices = JsonConvert.DeserializeObject<List<price>>(json);
+            }
 
             return item_dictlist.Sum(x => x.Value); 
         }
