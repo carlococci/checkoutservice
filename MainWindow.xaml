@@ -1,0 +1,17 @@
+﻿<Window x:Class="checkoutprice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:checkoutprice"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="343" Width="368">
+    <Grid Margin="0,39,2,12">
+        <Button Content="Calculate Price" HorizontalAlignment="Left" Height="68" Margin="152,106,0,0" VerticalAlignment="Top" Width="175" Click="calculate_price_click"/>
+        <TextBox x:Name="tb_items_list" HorizontalAlignment="Left" Margin="152,68,0,169" TextWrapping="Wrap" Text="TextBox" Width="175"/>
+        <TextBox x:Name="tb_total_price" HorizontalAlignment="Left" Height="30" Margin="152,196,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="175"/>
+        <Label Content="Total Price" HorizontalAlignment="Left" Height="30" Margin="10,196,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Item Quantity List" HorizontalAlignment="Left" Height="30" Margin="10,68,0,0" VerticalAlignment="Top" Width="118"/>
+
+    </Grid>
+</Window>
