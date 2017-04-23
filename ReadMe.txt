@@ -24,10 +24,10 @@ Cycle through list of items totalling number of items for each unit name.
 Eg outcome for list of items (IA:2,IB:2,IA,IB:3,IZ) gives IA:3,IB:5,IZ:1
 Then get items, unit prices, item special names and their special qty and special price from the json service.
 Apply this information to the input list to calculate total price as follows:
-For each item in in_list
-Modqty = mod (itemqty, special qty) 
+For each item in in_list and is a valid type ie has a price from the service
+Modqty = mod (itemqty, special qty) modulas of the items per type
 If modqty >= 1
-Total_price = total_price + (special_price x modqty(special_quantity)
+Total_price = total_price + (special_price x modqty)
 Else
 Total_price = total_price + (unit_price x item qty)
 Return total
